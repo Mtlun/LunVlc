@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_back"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="@drawable/mediacontroller_bg"
+        android:padding="16dip"
+        android:visibility="visible">
+
+        <Button
+            android:id="@+id/bt_back"
+            android:layout_width="20dip"
+            android:layout_height="20dip"
+            android:background="@drawable/common_back_selector" />
+    </RelativeLayout>
+
+    <com.lun.vlc.CustomVLCVideoView
+        android:id="@+id/vlc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

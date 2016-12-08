@@ -32,7 +32,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-version = "1.0.1"
+version = "1.0.2"
 
 def siteUrl = 'https://github.com/Mtlun/LunVlc'
 def gitUrl = 'git@github.com:Mtlun/LunVlc.git'

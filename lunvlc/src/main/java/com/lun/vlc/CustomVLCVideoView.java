@@ -71,6 +71,7 @@ public class CustomVLCVideoView extends RelativeLayout {
     private IVLCVout.Callback mCallback;
     private ONVLCPlayListener mONVLCPlayListener;
     private MediaPlayer mMediaPlayer = null;
+    private boolean mHWDecoderEnabled = true;
     /**
      * Track point indicator
      */
@@ -122,6 +123,14 @@ public class CustomVLCVideoView extends RelativeLayout {
         initViews(mContext);
     }
 
+    /**
+     * Soft and hard decoding switch
+     * @param status
+     */
+    public void setHWDecoderEnabled(boolean status){
+        this.mHWDecoderEnabled = status;
+    }
+
     private void initViews(Context context) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.view_custom_vlc_videoview, this);
@@ -165,7 +174,7 @@ public class CustomVLCVideoView extends RelativeLayout {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     if (mIsFinish) {
-                        createPlayer(mFilePath, true);
+                        createPlayer(mFilePath, mHWDecoderEnabled);
                         mIsFinish = false;
                     } else {
                         mMediaPlayer.play();
@@ -175,7 +184,7 @@ public class CustomVLCVideoView extends RelativeLayout {
                 }
             }
         });
-        createPlayer(mFilePath, true);
+        createPlayer(mFilePath, mHWDecoderEnabled);
     }
 
     public void createPlayer(String media, boolean needSetHWDecoderEnabled) {
@@ -377,7 +386,7 @@ public class CustomVLCVideoView extends RelativeLayout {
         /** Resume playback */
         if (mPosition > 0) {
             try {
-                createPlayer(pFilePath, true);
+                createPlayer(pFilePath, mHWDecoderEnabled);
                 mIsFinish = false;
             } catch (Exception e) {
                 Log.e("lun", e.toString());

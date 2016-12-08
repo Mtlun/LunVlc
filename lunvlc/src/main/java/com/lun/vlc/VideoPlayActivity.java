@@ -62,6 +62,7 @@ public class VideoPlayActivity extends Activity implements CustomVLCVideoView.ON
         }
 
         mPath = getIntent().getStringExtra("path");
+        mvlc.setHWDecoderEnabled(getIntent().getBooleanExtra("HWDecoderstatus", true));
         mvlc.setIsShowSeekBar(true);
         mvlc.init(this, mPath, this, this);
     }

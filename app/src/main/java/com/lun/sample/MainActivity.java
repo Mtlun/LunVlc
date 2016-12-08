@@ -34,13 +34,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mPlay = (Button) this.findViewById(R.id.bt_play);
         if (null == mPath || mPath.isEmpty()) {
-            mPath = "/mnt/sdcard/video.3gp";
+            mPath = "/mnt/sdcard/video.3gp";//记得将video.3gp视频文件放到手机根目录(文件在工程根目录下)
         }
         mPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, VideoPlayActivity.class);
                 intent.putExtra("path", mPath);
+                intent.putExtra("HWDecoderstatus", true);//设置为硬解码(默认硬解码)
                 startActivity(intent);
             }
         });

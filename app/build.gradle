@@ -25,12 +25,12 @@ repositories {
     }
 }
 
-//如果下载失败,请打开注释
-repositories {
-    maven {
-        url 'https://mtl.bintray.com/tools'
-    }
-}
+////如果下载失败,请打开注释
+//repositories {
+//    maven {
+//        url 'https://mtl.bintray.com/tools'
+//    }
+//}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -39,5 +39,5 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:22.2.1'
     testCompile 'junit:junit:4.12'
-    compile 'com.github.Mtlun:lunvlc:1.0.1'
+    compile 'com.github.Mtlun:lunvlc:1.0.2'
 }

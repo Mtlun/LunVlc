@@ -22,12 +22,17 @@
 我简单封装了一个activity可以直接使用（“path” 支持网络格式）(详细可以看demo)
 如果想自定义实现可以参考 CustomVLCVideoView 和 VideoPlayActivity 的实现。
 
+	添加权限
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	
 	Intent intent = new Intent(MainActivity.this, VideoPlayActivity.class);
     intent.putExtra("path", mPath);
 	intent.putExtra("HWDecoderstatus", true);//设置为硬解码(默认硬解码)
     startActivity(intent);
 
 ##说明
+* jni文件在libvlc文件夹里面
 * 目前支持的库 armeabi-v7a
 * 后续会不定时编译升级vlc版本
 
